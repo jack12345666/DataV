@@ -16,8 +16,7 @@ export default {
     return {
       ref: 'full-screen-container',
       allWidth: 0,
-      allHeight: 0,
-      scale: 1,
+      scale: 0,
       datavRoot: '',
       ready: false
     }
@@ -34,18 +33,19 @@ export default {
     },
     initConfig () {
       const { dom } = this
-      this.allWidth = 1920
-      this.allHeight = 1080
-      dom.style.width = `1920px`
-      dom.style.height = `1080px`
+      const { width, height } = screen
+
+      this.allWidth = width
+
+      dom.style.width = `${width}px`
+      dom.style.height = `${height}px`
     },
     setAppScale () {
       const { allWidth, dom } = this
 
       const currentWidth = document.body.clientWidth
+
       dom.style.transform = `scale(${currentWidth / allWidth})`
-      this.scale = currentWidth / allWidth
-      dom.style.height = this.scale*1080 + 'px'
     },
     onResize () {
       const { setAppScale } = this

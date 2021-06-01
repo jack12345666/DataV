@@ -10,12 +10,12 @@ $ npm install bigScreenV
 
 ```js
 import Vue from 'vue'
-import DataV from 'bigScreenV'
+import DataV from 'bigscreenv'
 
 Vue.use(DataV)
 
 // 按需引入
-import { borderBox1 } from 'bigScreenV'
+import { borderBox1 } from 'bigscreenv'
 Vue.use(borderBox1)
 ```
 
