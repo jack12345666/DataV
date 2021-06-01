@@ -16,7 +16,8 @@ export default {
     return {
       ref: 'full-screen-container',
       allWidth: 0,
-      scale: 0,
+      allHeight: 0,
+      scale: 1,
       datavRoot: '',
       ready: false
     }
@@ -33,19 +34,18 @@ export default {
     },
     initConfig () {
       const { dom } = this
-      const { width, height } = screen
-
-      this.allWidth = width
-
-      dom.style.width = `${width}px`
-      dom.style.height = `${height}px`
+      this.allWidth = 1920
+      this.allHeight = 1080
+      dom.style.width = `1920px`
+      dom.style.height = `1080px`
     },
     setAppScale () {
       const { allWidth, dom } = this
 
       const currentWidth = document.body.clientWidth
-
       dom.style.transform = `scale(${currentWidth / allWidth})`
+      this.scale = currentWidth / allWidth
+      dom.style.height = this.scale*1080 + 'px'
     },
     onResize () {
       const { setAppScale } = this
@@ -55,14 +55,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less">
-#dv-full-screen-container {
-  position: fixed;
-  top: 0px;
-  left: 0px;
-  overflow: hidden;
-  transform-origin: left top;
-  z-index: 999;
-}
-</style>
