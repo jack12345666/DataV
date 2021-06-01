@@ -1,6 +1,6 @@
 {
   "name": "bigscreenv",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "mengtao <2726653264@qq.com>",
   "description": "Vue Large screen data display component library",
   "main": "lib/index.js",
